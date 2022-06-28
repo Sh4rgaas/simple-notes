@@ -1,6 +1,6 @@
 import { Document } from "mongoose";
 
-export interface Note extends Document {
+export interface INote extends Document {
   name: string
   description: string
   status: boolean

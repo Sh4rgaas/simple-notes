@@ -1,4 +1,4 @@
-import { Note } from "./../types/note";
+import { INote } from "./../types/note";
 import { model, Schema } from "mongoose";
 
 const noteSchema: Schema = new Schema(
@@ -21,4 +21,4 @@ const noteSchema: Schema = new Schema(
   { timestamps: true }
 )
 
-export default model<Note>("Note", noteSchema)
+export default model<INote>("Note", noteSchema)
