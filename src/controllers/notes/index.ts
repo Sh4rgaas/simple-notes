@@ -52,3 +52,21 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
       throw error
     }
   }
+
+  const deleteNote = async (req: Request, res: Response): Promise<void> => {
+    try {
+      const deletedNote: INote | null = await Note.findByIdAndRemove(
+        req.params.id
+      )
+      const allNotes: INote[] = await Note.find()
+      res.status(200).json({
+        message: "Note deleted",
+        todo: deletedNote,
+        todos: allNotes,
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+  
+  export { getNotes, addNote, updateNote, deleteNote }
