@@ -65,8 +65,8 @@ const deleteNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         const allNotes = yield note_1.default.find();
         res.status(200).json({
             message: "Note deleted",
-            todo: deletedNote,
-            todos: allNotes,
+            note: deletedNote,
+            notes: allNotes,
         });
     }
     catch (error) {

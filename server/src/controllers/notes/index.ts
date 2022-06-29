@@ -61,8 +61,8 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
       const allNotes: INote[] = await Note.find()
       res.status(200).json({
         message: "Note deleted",
-        todo: deletedNote,
-        todos: allNotes,
+        note: deletedNote,
+        notes: allNotes,
       })
     } catch (error) {
       throw error
