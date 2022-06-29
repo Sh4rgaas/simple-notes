@@ -1,34 +1,34 @@
-import React from "react";
+import React, { useState } from 'react';
 
-type Props = NoteProps & {
-  updateNote: (note: INote) => void;
-  deleteNote: (_id: string) => void;
+type Props = { 
+  saveNote: (e: React.FormEvent, formData: INote | any) => void;
 }
 
-const Note: React.FC<Props> = ({ note, updateNote, deleteNote }) => {
-  const checkNote: string = note.status ? `line-through` : ""
+const AddNote: React.FC<Props> = ({ saveNote }) => {
+  const [formData, setFormData] = useState<INote | {}>();
+
+  const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
+    setFormData({
+      ...formData,
+      [e.currentTarget.id]: e.currentTarget.value,
+    });
+  }
+
   return (
-    <div className="Card">
-      <div className="Card--text">
-        <h1 className={checkNote}>{note.name}</h1>
-        <span className={checkNote}>{note.description}</span>
+    <form className='Form' onSubmit={(e) => saveNote(e, formData)}>
+      <div>
+        <div>
+          <label htmlFor='name'>Name</label>
+          <input onChange={handleForm} type='text' id='name' />
+        </div>
+        <div>
+          <label htmlFor='description'>Description</label>
+          <input onChange={handleForm} type='text' id='description' />
+        </div>
       </div>
-      <div className="Card--button">
-        <button
-          onClick={() => updateNote(note)}
-          className={note.status ? `hide-button` : "Card--button__done"}
-        >
-          Complete
-        </button>
-        <button
-          onClick={() => deleteNote(note._id)}
-          className="Card--button__delete"
-        >
-          Delete
-        </button>
-      </div>
-    </div>
+      <button disabled={formData === undefined ? true: false} >Add Note</button>
+    </form>
   )
-}
+};
 
-export default Note;
+export default AddNote;
