@@ -52,7 +52,7 @@ const App: React.FC = () => {
 
   return (
     <main className='App'>
-      <h1>My Notes</h1>
+      <h1>Simple Notes</h1>
       <AddNote saveNote={handleSaveNote} />
       {notes.map((note: INote) => (
         <NoteItem

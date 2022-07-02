@@ -9,7 +9,7 @@ export const getNotes = async (): Promise<AxiosResponse<ApiDataType>> => {
     )
     return notes;
   } catch (error) {
-    throw new Error()
+    throw new Error(error.message)
   }
 };
 
@@ -26,11 +26,11 @@ export const addNote = async (
         baseUrl + "/add-note",
         note
       )
-      return saveNote
+      return saveNote;
     } catch (error) {
-      throw new Error()
+      throw new Error(error.message)
     }
-  }
+  };
 
   export const updateNote = async (
     note: INote
@@ -43,11 +43,11 @@ export const addNote = async (
         `${baseUrl}/edit-note/${note._id}`,
         noteUpdate
       )
-      return updatedNote
+      return updatedNote;
     } catch (error) {
-      throw new Error()
+      throw new Error(error.message)
     }
-  }
+  };
 
   export const deleteNote = async (
     _id: string
@@ -56,8 +56,8 @@ export const addNote = async (
       const deletedNote: AxiosResponse<ApiDataType> = await axios.delete(
         `${baseUrl}/delete-note/${_id}`
       )
-      return deletedNote
+      return deletedNote;
     } catch (error) {
-      throw new Error()
+      throw new Error(error.message)
     }
-  }
+  };

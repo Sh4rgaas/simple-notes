@@ -14,13 +14,13 @@ const getNotes = async (req: Request, res: Response): Promise<void> => {
 const addNote = async (req: Request, res: Response): Promise<void> => {
     try {
       const body = req.body as Pick<INote, "name" | "description" | "status">
-  
+      
       const note: INote = new Note({
         name: body.name,
         description: body.description,
         status: body.status,
       })
-  
+      console.log({ body, note });
       const newNote: INote = await note.save()
       const allNotes: INote[] = await Note.find()
   
@@ -54,6 +54,7 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
   }
 
   const deleteNote = async (req: Request, res: Response): Promise<void> => {
+    // res.status(200);
     try {
       const deletedNote: INote | null = await Note.findByIdAndRemove(
         req.params.id
@@ -69,4 +70,4 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
     }
   }
   
-  export { getNotes, addNote, updateNote, deleteNote }
+  export { getNotes, addNote, updateNote, deleteNote };

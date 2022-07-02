@@ -25,6 +25,7 @@ const getNotes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getNotes = getNotes;
 const addNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("i'm inside addnote");
     try {
         const body = req.body;
         const note = new note_1.default({
@@ -32,6 +33,7 @@ const addNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             description: body.description,
             status: body.status,
         });
+        console.log({ body, note });
         const newNote = yield note.save();
         const allNotes = yield note_1.default.find();
         res
@@ -60,6 +62,7 @@ const updateNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.updateNote = updateNote;
 const deleteNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // res.status(200);
     try {
         const deletedNote = yield note_1.default.findByIdAndRemove(req.params.id);
         const allNotes = yield note_1.default.find();
