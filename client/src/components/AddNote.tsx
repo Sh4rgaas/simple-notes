@@ -26,7 +26,7 @@ const AddNote: React.FC<Props> = ({ saveNote }) => {
           <input onChange={handleForm} type='text' id='description' />
         </div>
       </div>
-      <button disabled={formData === undefined ? true: false} >Add Note</button>
+      <button disabled={formData === undefined} >Add Note</button>
     </form>
   )
 };

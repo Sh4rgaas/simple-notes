@@ -17,7 +17,7 @@ const App: React.FC = () => {
   };
 
   const handleSaveNote = (e: React.FormEvent, formData: INote): void => {
-    e.preventDefault()
+    e.preventDefault();
     addNote(formData)
       .then(({ status, data }) => {
         if (status !== 201) {
