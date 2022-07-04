@@ -42,7 +42,7 @@ const Note: React.FC<Props> = ({ note, updateNote, editNote, deleteNote  }) => {
         )}
 
         <p className={editMode ? `hide-button` : checkNote}>
-          Created at: {dateFormat(note.createdAt, 'dddd, mmmm dS, yyyy')}
+          Created at: {dateFormat(note.createdAt, 'dddd, mmmm dS, yyyy, h:MM:ss TT')}
           </p>
       </div>
       { editMode ? (

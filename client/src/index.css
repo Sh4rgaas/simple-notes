@@ -28,8 +28,6 @@ body {
 
 .Card {
     display: flex;
-    grid-row-start: 1;
-    grid-column-start: 1;
     justify-content: space-between;
     align-items: center;
     background: #463C52;
@@ -38,7 +36,6 @@ body {
     border-bottom: 1px solid #333333;
     border-radius: 20px;
     opacity: 0.8;
-    z-index: 9;
 }
 
 .Card:nth-child(even) {
@@ -92,8 +89,7 @@ h2 {
 }
 
 .Form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;

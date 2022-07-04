@@ -73,7 +73,7 @@ const App: React.FC = () => {
           deleteNote={handleDeleteNote}
           note={note}
         />
-      ))}
+      )).sort().reverse()}
     </main>
   )
 }
