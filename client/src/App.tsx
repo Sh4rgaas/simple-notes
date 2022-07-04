@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NoteItem from './components/NoteItem';
 import AddNote from './components/AddNote';
-import { getNotes, addNote, updateNote, deleteNote } from './API';
+import { getNotes, addNote, updateNote, editNote, deleteNote } from './API';
 
 const App: React.FC = () => {
   const [notes, setNotes] = useState<INote[]>([])
@@ -38,6 +38,17 @@ const App: React.FC = () => {
       })
       .catch(err => console.log(err))
   }
+
+  const handleEditNote = (note: INote): void => {
+    editNote(note)
+      .then(({ status, data }) => {
+        if (status !== 200) {
+          throw new Error("Error! Note not edited")
+        }
+        setNotes(data.notes)
+      })
+      .catch(err => console.log(err))
+  }
   
   const handleDeleteNote = (_id: string): void => {
     deleteNote(_id)
@@ -58,6 +69,7 @@ const App: React.FC = () => {
         <NoteItem
           key={note._id}
           updateNote={handleUpdateNote}
+          editNote={handleEditNote}
           deleteNote={handleDeleteNote}
           note={note}
         />

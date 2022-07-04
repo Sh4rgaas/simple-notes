@@ -32,6 +32,27 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
     }
   }
 
+  const editNote = async (req: Request, res: Response): Promise<void> => {
+    try {
+      const {
+        params: { id },
+        body,
+      } = req
+      const editNote: INote | null = await Note.findByIdAndUpdate(
+        { _id: id },
+        body
+      )
+      const allNotes: INote[] = await Note.find()
+      res.status(200).json({
+        message: "Note edited",
+        note: editNote,
+        notes: allNotes,
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+
   const updateNote = async (req: Request, res: Response): Promise<void> => {
     try {
       const {
@@ -54,7 +75,6 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
   }
 
   const deleteNote = async (req: Request, res: Response): Promise<void> => {
-    // res.status(200);
     try {
       const deletedNote: INote | null = await Note.findByIdAndRemove(
         req.params.id
@@ -70,4 +90,4 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
     }
   }
   
-  export { getNotes, addNote, updateNote, deleteNote };
+  export { getNotes, addNote, updateNote, deleteNote, editNote };

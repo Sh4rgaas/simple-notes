@@ -19,11 +19,11 @@ const AddNote: React.FC<Props> = ({ saveNote }) => {
       <div>
         <div>
           <label htmlFor='name'>Name</label>
-          <input onChange={handleForm} type='text' id='name' />
+          <input placeholder='Scribble a note...' onChange={handleForm} type='text' id='name' />
         </div>
         <div>
           <label htmlFor='description'>Description</label>
-          <input onChange={handleForm} type='text' id='description' />
+          <input placeholder='Add information' onChange={handleForm} type='text' id='description' />
         </div>
       </div>
       <button disabled={formData === undefined} >Add Note</button>

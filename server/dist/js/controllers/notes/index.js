@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteNote = exports.updateNote = exports.addNote = exports.getNotes = void 0;
+exports.editNote = exports.deleteNote = exports.updateNote = exports.addNote = exports.getNotes = void 0;
 const note_1 = __importDefault(require("../../models/note"));
 const getNotes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -44,6 +44,22 @@ const addNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.addNote = addNote;
+const editNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { params: { id }, body, } = req;
+        const editNote = yield note_1.default.findByIdAndUpdate({ _id: id }, body);
+        const allNotes = yield note_1.default.find();
+        res.status(200).json({
+            message: "Note edited",
+            note: editNote,
+            notes: allNotes,
+        });
+    }
+    catch (error) {
+        throw error;
+    }
+});
+exports.editNote = editNote;
 const updateNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { params: { id }, body, } = req;
@@ -61,7 +77,6 @@ const updateNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.updateNote = updateNote;
 const deleteNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // res.status(200);
     try {
         const deletedNote = yield note_1.default.findByIdAndRemove(req.params.id);
         const allNotes = yield note_1.default.find();

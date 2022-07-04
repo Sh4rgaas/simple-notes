@@ -28,6 +28,8 @@ body {
 
 .Card {
     display: flex;
+    grid-row-start: 1;
+    grid-column-start: 1;
     justify-content: space-between;
     align-items: center;
     background: #463C52;
@@ -36,21 +38,39 @@ body {
     border-bottom: 1px solid #333333;
     border-radius: 20px;
     opacity: 0.8;
+    z-index: 9;
+}
 
+.Card:nth-child(even) {
+    background-color: #D2A9B0;
+}
+
+.Card:nth-child(odd) {
+    background-color: #455054;
+}
+
+.Card:nth-child(3n) {
+    background-color: #E69D45;
 }
 
 .Card--text h1 {
     color: #9D93BA;
+    text-decoration: underline;
 }
 
 h2 {
     color: #BEC4E1;
 }
 
+.Card--button{
+    display: flex;
+}
+
 .Card--button button {
     background: #f5f6f7;
     padding: 0.4rem 1rem;
     border-radius: 20px;
+    border: none;
     cursor: pointer;
 }
 
@@ -72,7 +92,8 @@ h2 {
 }
 
 .Form {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -89,6 +110,16 @@ h2 {
 }
 
 .Form input {
+    background: #f5f6f7;
+    padding: 0.5rem 1rem;
+    border: 1px;
+    border-radius: 10px;
+    display: block;
+    margin: 0.3rem 1rem 0 0;
+    padding-right: 7rem;
+}
+
+input {
     background: #f5f6f7;
     padding: 0.5rem 1rem;
     border: 1px;
