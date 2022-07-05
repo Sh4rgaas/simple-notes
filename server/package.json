@@ -12,6 +12,7 @@
   "scripts": {
     "build": "tsc",
     "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\"",
+    "server": "nodemon dist/js/app.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

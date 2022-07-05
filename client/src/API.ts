@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 // import Note from "./components/NoteItem";
 
-const baseUrl: string = "http://localhost:4000";
+const baseUrl: string = "";
 
 export const getNotes = async (): Promise<AxiosResponse<ApiDataType>> => {
   try {

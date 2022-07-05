@@ -1,9 +1,18 @@
 {
-  "dependencies": {
-    "body-parser": "^1.20.0",
-    "dateformat": "^5.0.3"
+  "name": "simple-notes",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "scripts": {
+    "start": "node "
   },
-  "devDependencies": {
-    "@types/dateformat": "^5.0.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sh4rgaas/simple-notes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sh4rgaas/simple-notes/issues"
+  },
+  "homepage": "https://github.com/Sh4rgaas/simple-notes#readme"
 }
