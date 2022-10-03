@@ -62,7 +62,7 @@ const editNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.editNote = editNote;
 const updateNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { params: { id }, body, } = req;
+        const { params: { id }, body } = req;
         const updateNote = yield note_1.default.findByIdAndUpdate({ _id: id }, body);
         const allNotes = yield note_1.default.find();
         res.status(200).json({

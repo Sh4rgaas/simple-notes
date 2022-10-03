@@ -1,145 +1,168 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #fff;
-    background: #333;
-    background-image: url(./img/notes.jpg);
+  font: var(--fw-normal) var(--base-font) var(--ff-sans);
+  background: var(--clr-page-bg) var(--img-bg) no-repeat 0% 0% / 100vw 30rem;
+  padding-top: 8rem;
+  width: min(85%, 54rem);
+  margin: auto;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
 }
 
 .App {
-    max-width: 728px;
-    margin: 4rem auto;
+  max-width: 728px;
+  margin: 4rem auto;
 }
 
 .App > h1 {
-    text-align: center;
-    margin: 1rem 0;  
-    color: #F7F0C6;  
+  color: var(--clr-white);
+  letter-spacing: 1.3rem;
+  font-weight: 700;
+  font-size: calc(var(--base-font) * 2);
+  margin-bottom: 50px;
 }
 
 .Card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #463C52;
-    margin-bottom: 7px;
-    padding: 0.5rem 1rem;
-    border-bottom: 1px solid #333333;
-    border-radius: 20px;
-    opacity: 0.8;
+  background-color: var(--clr-card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.9rem 2rem;
+  gap: 2rem;
+  border-radius: 2px;
 }
 
 .Card:nth-child(even) {
-    background-color: #D2A9B0;
-}
-
-.Card:nth-child(odd) {
-    background-color: #455054;
-}
-
-.Card:nth-child(3n) {
-    background-color: #E69D45;
+  background-color: rgb(45, 48, 82);
 }
 
 .Card--text h1 {
-    color: #9D93BA;
+  color: hsl(235, 40%, 78%);
 }
 
 h2 {
-    color: #BEC4E1;
+  color: #bec4e1;
 }
 
-.Card--button{
-    display: flex;
+.Card--button {
+  display: flex;
 }
 
 .Card--button button {
-    background: #f5f6f7;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
+  background: #f5f6f7;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
 }
 
 .Card--button__delete {
-    border: 1px solid #ca0000;
-    color: #ca0000;
+  border: 1px solid #ca0000;
+  color: #ca0000;
 }
 
 .Card--button__edit {
-    border: 1px solid #ca0000;
-    color: orange;
-    margin-right: 15px;
+  border: 1px solid #ca0000;
+  color: orange;
+  margin-right: 15px;
 }
 
 .Card--button__done {
-    border: 1px solid #00aa69;
-    color: #00aa69;
-    margin-right: 1rem;
+  border: 1px solid #00aa69;
+  color: #00aa69;
+  margin-right: 1rem;
 }
 
 .Form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: #8B776D;
-    margin-bottom: 1rem;
-    border-radius: 20px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: hsl(235, 24%, 19%);
+  margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 .Form > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 850px) {
+  .Form > div {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .Form input {
-    background: #f5f6f7;
-    padding: 0.5rem 1rem;
-    border: 1px;
-    border-radius: 10px;
-    display: block;
-    margin: 0.3rem 1rem 0 0;
-    padding-right: 7rem;
+  background: #f5f6f7;
+  padding: 0.5rem 1rem;
+  border: 1px;
+  border-radius: 10px;
+  display: block;
+  margin: 0.3rem 1rem 0 0;
+  padding-right: 7rem;
 }
 
 input {
-    background: #f5f6f7;
-    padding: 0.5rem 1rem;
-    border: 1px;
-    border-radius: 10px;
-    display: block;
-    margin: 0.3rem 1rem 0 0;
-    padding-right: 7rem;
+  background: #f5f6f7;
+  padding: 0.5rem 1rem;
+  border: 1px;
+  border-radius: 10px;
+  display: block;
+  margin: 0.3rem 1rem 0 0;
+  padding-right: 7rem;
 }
 
-
 .Form button {
-    background: #9D93BA;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    border: none;
+  background: #9d93ba;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
 }
 
 .line-through {
-    text-decoration: line-through;
-    color: #777 !important;
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%) !important;
+  /* color: #777 !important; */
 }
 
 .hide-button {
-    display: none;
+  display: none;
+}
+
+:root {
+  --ff-sans: 'Josefin Sans', sans-serif;
+  --base-font: 1.6rem;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --img-bg: url('../src/img/notes.jpg');
+  --clr-primary: hsl(0, 0%, 98%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-page-bg: hsl(235, 21%, 11%);
+  --clr-card-bg: hsl(235, 24%, 19%);
+  --clr-blue: hsl(220, 98%, 61%);
+  --clr-green: hsl(192, 100%, 67%);
+  --clr-pink: hsl(280, 87%, 65%);
+  --clr-gb-1: hsl(236, 33%, 92%);
+  --clr-gb-2: hsl(234, 39%, 75%);
+  --clr-gb-3: hsl(234, 11%, 52%);
+  --clr-gb-4: hsl(237, 12%, 36%);
+  --clr-gb-5: hsl(233, 14%, 35%);
+  --clr-gb-6: hsl(235, 19%, 24%);
+  --clr-box-shadow: hsl(0, 0%, 0%, 0.1);
 }

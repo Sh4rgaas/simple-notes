@@ -19,7 +19,8 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
         name: body.name,
         description: body.description,
         status: body.status,
-      })
+      });
+
       console.log({ body, note });
       const newNote: INote = await note.save()
       const allNotes: INote[] = await Note.find()
@@ -55,10 +56,7 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
 
   const updateNote = async (req: Request, res: Response): Promise<void> => {
     try {
-      const {
-        params: { id },
-        body,
-      } = req
+      const { params: { id }, body } = req
       const updateNote: INote | null = await Note.findByIdAndUpdate(
         { _id: id },
         body

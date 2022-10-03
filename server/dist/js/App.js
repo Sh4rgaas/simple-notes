@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 app.use(body_parser_1.default.json());
 app.use((0, cors_1.default)({
     origin: '*',
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
 }));
 app.use(routes_1.default);
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_DB}.coo28.mongodb.net/?retryWrites=true&w=majority`;

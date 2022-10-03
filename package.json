@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "scripts": {
-    "start": "node "
+    "build-client": "cd client && npm run build",
+    "build-server": "cd server && npm run build",
+    "build": "npm run build-server && npm run build-client"
   },
   "repository": {
     "type": "git",

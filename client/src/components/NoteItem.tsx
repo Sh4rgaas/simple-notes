@@ -7,45 +7,50 @@ type Props = NoteProps & {
   deleteNote: (_id: string) => void;
 };
 
-const Note: React.FC<Props> = ({ note, updateNote, editNote, deleteNote  }) => {
+const Note: React.FC<Props> = ({ note, updateNote, editNote, deleteNote }) => {
   const [editMode, setEditMode] = useState(false);
   const [editName, setEditName] = useState('');
   const [editDescription, setEditDescription] = useState('');
 
-  useEffect(() => {
-    
-  }, [note]);
+  useEffect(() => {}, [note]);
 
   const checkNote: string = note.status ? `line-through` : '';
   return (
     <div className='Card'>
       <div className='Card--text'>
-        { editMode ? (
+        {editMode ? (
           <div>
-            <label htmlFor="Name">Name</label>
-            <input id='name' value={editName} onChange={(e) => {
-              setEditName(e.currentTarget.value);
-            }} />
+            <label htmlFor='Name'>Name</label>
+            <input
+              id='name'
+              value={editName}
+              onChange={(e) => {
+                setEditName(e.currentTarget.value);
+              }}
+            />
           </div>
         ) : (
-          <h1 className={checkNote}>
-            {note.name}
-          </h1>
+          <h1 className={checkNote}>{note.name}</h1>
         )}
-        { editMode ? (
+        {editMode ? (
           <div>
-          <label htmlFor="Description">Description</label>
-          <input id='description' value={editDescription} onChange={e => setEditDescription(e.currentTarget.value) }/>
-        </div>
+            <label htmlFor='Description'>Description</label>
+            <input
+              id='description'
+              value={editDescription}
+              onChange={(e) => setEditDescription(e.currentTarget.value)}
+            />
+          </div>
         ) : (
           <h2 className={checkNote}>{note.description}</h2>
         )}
 
         <p className={editMode ? `hide-button` : checkNote}>
-          Created at: {dateFormat(note.createdAt, 'dddd, mmmm dS, yyyy, h:MM:ss TT')}
-          </p>
+          Created at:{' '}
+          {dateFormat(note.createdAt, 'dddd, mmmm dS, yyyy, h:MM:ss TT')}
+        </p>
       </div>
-      { editMode ? (
+      {editMode ? (
         <div className='Card--button'>
           <button
             className='Card--button__done'
